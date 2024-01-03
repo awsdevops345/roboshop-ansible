@@ -69,9 +69,9 @@
   #   ansible.builtin.debug:
   #     msg: "product count: {{product_count}}"
 
-  #- name: load user data
-  #  ansible.builtin.command: mongo --host 172.31.44.218 < /app/schema/user.js
-  #  when: product_count.stdout == "0" # keep double quotes
+  - name: load user data
+    ansible.builtin.shell: mongo --host 172.31.44.218 < /app/schema/user.js
+  #    when: product_count.stdout == "0" # keep double quotes
 
   - name: start and enable user
     ansible.builtin.service:
